@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="第一次提交">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="增加数据集cora">
+      <change afterPath="$PROJECT_DIR$/GCN/GCN_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GCN/model_train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +84,7 @@
       <workItem from="1719374110887" duration="242000" />
       <workItem from="1719374410911" duration="141000" />
       <workItem from="1719374650383" duration="395000" />
-      <workItem from="1719375056044" duration="158000" />
+      <workItem from="1719375056044" duration="364000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -93,7 +94,39 @@
       <option name="project" value="LOCAL" />
       <updated>1719375108756</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="第一次提交">
+      <option name="closed" value="true" />
+      <created>1719375227512</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719375227512</updated>
+    </task>
+    <task id="LOCAL-00003" summary="第一次提交">
+      <option name="closed" value="true" />
+      <created>1719375240920</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719375240920</updated>
+    </task>
+    <task id="LOCAL-00004" summary="增加数据集cora">
+      <option name="closed" value="true" />
+      <created>1719375267204</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719375267204</updated>
+    </task>
+    <task id="LOCAL-00005" summary="增加数据集cora">
+      <option name="closed" value="true" />
+      <created>1719375300778</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719375300778</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +146,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="第一次提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一次提交" />
+    <MESSAGE value="增加数据集cora" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加数据集cora" />
   </component>
 </project>
