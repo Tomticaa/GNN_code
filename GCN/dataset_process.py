@@ -16,12 +16,12 @@ import numpy as np  # 实现矩阵操作
 import scipy.sparse as sp  # 实现对稀疏矩阵的科学计算
 from collections import namedtuple  # 可为元组中元素命名
 import itertools  # 高效的迭代工具
-
+# TODO 为数据集的划分设置的随机种子：保证结果可复现性
 # 建立命名元组存储数据集各属性数据
 Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'test_mask'])
 
 
-class CoraCoraDataset:  # TODO 写点啥呢？
+class CoraDataset:  # TODO 写点啥呢？   该文件只对已经划分好的数据集进行处理，应该对原始cora数据集进行处理；
     """
        Cora数据集，对指定目录下的原始Cora数据集进行处理，然后返回处理后的命名元组，该元组包含以下内容:
            x: 所有节点的特征，shape为(2708, 1433)
@@ -63,19 +63,78 @@ class CoraCoraDataset:  # TODO 写点啥呢？
         """
         print("数据处理中……")
         # 多重赋值方法：遍历这个文件夹下所有文件，*********_ :代表将该属性位置忽略，将self.filename（字符串文件）
-        # TODO 不太理解
+        # 以不同方法处理该文件下所有文件，并将其大多数赋值给np变量
         _, tx, allx, y, ty, ally, graph, test_index = [self.read_data(osp.join(self.data_root, "raw", name)) for name in
                                                        self.filename]
 
+        train_index = np.arange(y.shape[0])
+        val_index = np.arange(y.shape[0], y.shape[0] + 500)
+        sorted_test_index = sorted(test_index)
 
+        x = np.concatenate((allx, tx), axis=0)
+        y = np.concatenate((ally, ty), axis=0).argmax(axis=1)
 
+        x[test_index] = x[sorted_test_index]
+        y[test_index] = y[sorted_test_index]
+        num_nodes = x.shape[0]
 
+        train_mask = np.zeros(num_nodes, dtype=np.bool)
+        val_mask = np.zeros(num_nodes, dtype=np.bool)
+        test_mask = np.zeros(num_nodes, dtype=np.bool)
+        train_mask[train_index] = True
+        val_mask[val_index] = True
+        test_mask[test_index] = True
+        adjacency = self.build_adjacency(graph)
+        print("Node's feature shape: ", x.shape)
+        print("Node's label shape: ", y.shape)
+        print("Adjacency's shape: ", adjacency.shape)
+        print("Number of training nodes: ", train_mask.sum())
+        print("Number of validation nodes: ", val_mask.sum())
+        print("Number of test nodes: ", test_mask.sum())
+
+        return Data(x=x, y=y, adjacency=adjacency, train_mask=train_mask, val_mask=val_mask, test_mask=test_mask)
+
+    @staticmethod  # 表明该方法为静态方法，可以在没有实例化对象的情况下调用:不用实例化CoraDataset对象就可以调用方法CoraDataset。read_data()
     def read_data(path):  # 传入使用osp.join合并后的地址，进行数据读取，然后用于上述属性的赋值；
         """
         读取Cora原始数据文件
         """
-        name = osp.basename(path) # 返回传入路径最后的文件名；
-        # TODO 如果是测试文件。咋咋滴。这里的测试指数是啥意思？
-        if name == "ind.cora.test.index":
+        name = osp.basename(path)  # 返回传入路径最后的文件名；
+        if name == "ind.cora.test.index":  # 如果是测试文件索引： index表示测试集的节点索引
+            out = np.genfromtxt(path, dtype="int64")  # 将文件数据读入为 NumPy 数组
+            return out
+        else:  # 如果是其他文件
+            out = pickle.load(open(path, "rb"), encoding="latin1")  # 调用 pickle.load 方法加载已经序列化的二进制对象
+            out = out.toarray() if hasattr(out, "toarray") else out  # 用于处理 out 对象，以确保它总是以数组形式存在。
+            return out
+
+    @staticmethod
+    def build_adjacency(adj_dict):  # 以collections形式的graph作为输入返回稀疏矩阵形式的邻接表
+        """
+        根据邻接表创建邻接矩阵
+        """
+        edge_index = []
+        num_nodes = len(adj_dict)
+        for src, dst in adj_dict.items():
+            edge_index.extend([src, v] for v in dst)
+            edge_index.extend([v, src] for v in dst)
+        # 去除重复的边
+        edge_index = list(k for k, _ in itertools.groupby(sorted(edge_index)))
+        edge_index = np.asarray(edge_index)
+        adjacency = sp.coo_matrix((np.ones(len(edge_index)), (edge_index[:, 0], edge_index[:, 1])),
+                                  shape=(num_nodes, num_nodes), dtype="float32")
+        return adjacency
+
+    @staticmethod
+    def normalization(adjacency):  # 对邻接矩阵进行归一化；
+        """
+        计算 L=D^-0.5 * (A+I) * D^-0.5
+        """
+        adjacency += sp.eye(adjacency.shape[0])  # 增加自连接
+        degree = np.array(adjacency.sum(1))  # 计算每行值作为度
+        d_hat = sp.diags(np.power(degree, -0.5).flatten())
+        return d_hat.dot(adjacency).dot(d_hat).tocoo()
 
 
+if __name__ == '__main__':  # 如果在此页面运行则不作为脚本运行
+    ds = CoraDataset("C:/Users/14973/PycharmProjects/GCN/NodeClassification/src/dataset/cora", rebuild=True).data
