@@ -18,7 +18,7 @@ import numpy as np
 from sklearn.manifold import TSNE  # TSNE对高维进行降维，然后用matplotlib对降维后的数据进行散点图可视化
 import matplotlib.pyplot as plt
 # 导入数据处理以及模型中的类
-from dataset_process import CoraDataset
+from Cora_Data_process import CoraData
 from GCN_model import GCN
 
 # 定义超参数
@@ -29,7 +29,7 @@ Device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # 指�
 Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'test_mask'])  # 创建命名元组
 
 # 加载数据，转化为tensor，移至GPU计算
-dataset = CoraDataset().data  # 调用类中方法得到数据
+dataset = CoraData().data  # 调用类中方法得到数据
 node_feature = dataset.x / dataset.x.sum(axis=1, keepdims=True)  # 2708个节点特征进行归一化，且保证原来数据形状不变
 # 将原始np数据以tensor形式保存在变量中并移植到GPU
 tensor_x = torch.from_numpy(node_feature).to(Device)
@@ -37,7 +37,7 @@ tensor_y = torch.from_numpy(dataset.y).to(Device)
 tensor_train_mask = torch.from_numpy(dataset.train_mask).to(Device)
 tensor_val_mask = torch.from_numpy(dataset.val_mask).to(Device)
 tensor_test_mask = torch.from_numpy(dataset.test_mask).to(Device)
-normalize_adjacency = CoraDataset.normalization(dataset.adjacency)  # 调用执勤定义的方法：计算 L=D^-0.5 * (A+I) * D^-0.5
+normalize_adjacency = CoraData.normalization(dataset.adjacency)  # 调用执勤定义的方法：计算 L=D^-0.5 * (A+I) * D^-0.5
 
 num_nodes, input_dim = node_feature.shape  # 定义节点数以及输入特征维度
 # 将稀疏矩阵的索引格式转换为 PyTorch 张量
