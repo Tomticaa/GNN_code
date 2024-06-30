@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="增加数据集处理，模型结构以及模型训练等函数。">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GCN/Cora_Data_process.py" afterDir="false" />
+    <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="对原始数据集的处理函数已经改造完成，仍需精进；模型训练结果超时报错；">
+      <change afterPath="$PROJECT_DIR$/GCN/new.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/torch教程.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/GNN_code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GNN_code.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset/cora/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset/cora/cora.cites" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dataset/cora/cora.content" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GCN/Cora_Data_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/Cora_Data_process.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GCN/dataset_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/dataset_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GCN/model_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/model_train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
         <option value="Python Script" />
       </list>
     </option>
@@ -56,23 +62,30 @@
     "Python.Cora.Data_process.executor": "Run",
     "Python.Cora_Data_process (1).executor": "Run",
     "Python.dataset_process.executor": "Run",
-    "Python.model_train.executor": "Run",
+    "Python.model_train.executor": "Debug",
+    "Python.new.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/14973/OneDrive/Desktop/GCN",
+    "last_opened_file_path": "C:/Users/14973/PycharmProjects/GNN-master for github",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "editor.preferences.gutterIcons",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.model_train">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\14973\PycharmProjects\GNN_code\Dataset" />
+      <recent name="C:\Users\14973\PycharmProjects\GNN_code" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Cora_Data_process (1)">
     <configuration name="Cora_Data_process (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GNN_code" />
       <option name="ENV_FILES" value="" />
@@ -165,10 +178,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="new" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GNN_code" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GCN" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GCN/new.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.model_train" />
         <item itemvalue="Python.Cora_Data_process (1)" />
+        <item itemvalue="Python.new" />
+        <item itemvalue="Python.model_train" />
         <item itemvalue="Python.Cora_Data_process" />
         <item itemvalue="Python.dataset_process" />
       </list>
@@ -200,7 +237,10 @@
       <workItem from="1719541606422" duration="1000" />
       <workItem from="1719648550835" duration="17000" />
       <workItem from="1719648639532" duration="177000" />
-      <workItem from="1719649266949" duration="7309000" />
+      <workItem from="1719649266949" duration="7609000" />
+      <workItem from="1719726695746" duration="2098000" />
+      <workItem from="1719728840010" duration="1246000" />
+      <workItem from="1719730160064" duration="12627000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -266,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719483214981</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="对原始数据集的处理函数已经改造完成，仍需精进；模型训练结果超时报错；">
+      <option name="closed" value="true" />
+      <created>1719656979700</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1719656979700</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,12 +368,14 @@
     <MESSAGE value="第一次提交" />
     <MESSAGE value="增加数据集cora" />
     <MESSAGE value="增加数据集处理，模型结构以及模型训练等函数。" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加数据集处理，模型结构以及模型训练等函数。" />
+    <MESSAGE value="对原始数据集的处理函数已经改造完成，仍需精进；模型训练结果超时报错；" />
+    <option name="LAST_COMMIT_MESSAGE" value="对原始数据集的处理函数已经改造完成，仍需精进；模型训练结果超时报错；" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GNN_code$model_train.coverage" NAME="model_train 覆盖结果" MODIFIED="1719656677223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
+    <SUITE FILE_PATH="coverage/GNN_code$model_train.coverage" NAME="model_train 覆盖结果" MODIFIED="1719729807673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
+    <SUITE FILE_PATH="coverage/GNN_code$new.coverage" NAME="new 覆盖结果" MODIFIED="1719741405325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_process.coverage" NAME="dataset_process 覆盖结果" MODIFIED="1719479272148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process.coverage" NAME="Cora.Data_process 覆盖结果" MODIFIED="1719655548104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
-    <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process__1_.coverage" NAME="Cora_Data_process (1) 覆盖结果" MODIFIED="1719656670801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
+    <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process__1_.coverage" NAME="Cora_Data_process (1) 覆盖结果" MODIFIED="1719742858577" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
   </component>
 </project>

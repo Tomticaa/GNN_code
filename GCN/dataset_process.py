@@ -35,13 +35,13 @@ class CoraDataset:  # TODO 写点啥呢？   该文件只对已经划分好的�
        :param rebuild: 在后边if判断中用到，如果已经有现成的处理好的数据集就无需再进行数据处理，反之则及进行数据处理；
        """
 
-    def __init__(self, data_root="Dataset/cora", rebuild=False):  # 固定的构造函数并传入初值;rebuild:当 rebuild=True 时，表示用户希望重新构建数据或重新处理数据，无论之前的数据是否已经存在。当 rebuild=False 时，表示用户希望使用现有的数据，而不重新构建。
+    def __init__(self, data_root="Dataset/cora_1", rebuild=False):  # 固定的构造函数并传入初值;rebuild:当 rebuild=True 时，表示用户希望重新构建数据或重新处理数据，无论之前的数据是否已经存在。当 rebuild=False 时，表示用户希望使用现有的数据，而不重新构建。
         self.data_root = data_root
-        self.filename = ["ind.cora.{}".format(name) for name in
+        self.filename = ["ind.cora_1.{}".format(name) for name in
                          ['x', 'tx', 'allx', 'y', 'ty', 'ally', 'graph',
-                          'test.index']]  # 创建特定格式的文件列表,生成如 'ind.cora.x', 'ind.cora.tx' 等字符串
+                          'test.index']]  # 创建特定格式的文件列表,生成如 'ind.cora_1.x', 'ind.cora_1.tx' 等字符串
 
-        save_file = osp.join(self.data_root, "processed_cora.pkl")  # 进行路径合并:Dataset/cora/processed_cora.pkl  (字符串格式表示为文件路径)
+        save_file = osp.join(self.data_root, "processed_cora.pkl")  # 进行路径合并:Dataset/cora_1/processed_cora.pkl  (字符串格式表示为文件路径)
         """
             pickle:序列化与反序列化：可将对象以字节流的形式转化为文件格式，以便于对象的传输；
                 file = open(save_file, "wb")
@@ -108,7 +108,7 @@ class CoraDataset:  # TODO 写点啥呢？   该文件只对已经划分好的�
         读取Cora原始数据文件
         """
         name = osp.basename(path)  # 返回传入路径最后的文件名；
-        if name == "ind.cora.test.index":  # 如果是测试文件索引： index表示测试集的节点索引
+        if name == "ind.cora_1.test.index":  # 如果是测试文件索引： index表示测试集的节点索引
             out = np.genfromtxt(path, dtype="int64")  # 将文件数据读入为 NumPy 数组
             return out
         else:  # 如果是其他文件
@@ -145,4 +145,4 @@ class CoraDataset:  # TODO 写点啥呢？   该文件只对已经划分好的�
 
 
 if __name__ == '__main__':  # 如果在此页面运行则不作为脚本运行
-    ds = CoraDataset("C:/Users/14973/PycharmProjects/GCN/NodeClassification/src/dataset/cora", rebuild=True).data
+    ds = CoraDataset("C:/Users/14973/PycharmProjects/GCN/NodeClassification/src/dataset/cora_1", rebuild=True).data
