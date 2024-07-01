@@ -24,27 +24,22 @@ import scipy.sparse as sp  # 实现对稀疏矩阵的科学计算x
 import pandas as pd  # 科学处理表格数据
 import pickle as pkl
 from collections import namedtuple  # 可为元组中元素命名
-import networkx as nx
-
-# TODO 设置种子实现训练集，验证集和测试集的固定随机划分；
 
 Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'test_mask'])
 
 
 class CoraData:
-    def __init__(self, Data_root='../Dataset/cora', rebuild=False):  # 将文件夹作为参数传入
+    def __init__(self, Data_root='../Dataset/cora'):  # 将文件夹作为参数传入
         self.Data_root = Data_root
-        # TODO 这里添加一个if判断将处理好的数据使用pickle进行序列化保存；
-
         save_file = osp.join(self.Data_root, "processed_cora.pkl")  # 序列化后的文件：格式为namedtuple
-        if osp.exists(save_file) and not rebuild:  # 如果允许重建数据集或者已经处理好的数据集不存在则将进行新的数据处理；
-            print("使用已经缓存的文件: {}".format(save_file))
+        if osp.exists(save_file):
+            print("使用已经处理好数据: {}".format(save_file))
             self._data = pkl.load(open(save_file, "rb"))  # 反序列化及逆行还原
         else:
             self._data = self.process_data()
             with open(save_file, "wb") as f:  # with关键字，语法糖：用于便携式文件关闭
                 pkl.dump(self.data, f)  # 序列化进行打包
-            print("处理的文件为: {}".format(save_file))
+            print("已经处理好数据并将文件存储为: {}".format(save_file))
 
     @property
     def data(self):
@@ -58,30 +53,7 @@ class CoraData:
 
         x, y, dict_mp = self.x_y_process(path=(osp.join(self.Data_root, "cora.content")))  # 调用自定义函数，返回numpy形式的x,y
         adjacency = self.make_adjacency(dict_mp, path=(osp.join(self.Data_root, "cora.cites")))  # 返回稀疏邻接矩阵
-
-        # 随机创建掩码向量，用于训练集，验证集，测试集的划分。
-        np.random.seed(42)
-        num_nodes = y.shape[0]
-        # 创建节点索引数组
-        indices = np.arange(num_nodes)
-        # 打乱索引
-        np.random.shuffle(indices)
-        # 计算划分点
-        train_end = int(num_nodes * 0.6)
-        val_end = int(num_nodes * 0.8)
-
-        # 分配训练集、验证集和测试集
-        train_indices = indices[:train_end]
-        val_indices = indices[train_end:val_end]
-        test_indices = indices[val_end:]
-        # 初始化掩码
-        train_mask = np.zeros(num_nodes, dtype=bool)
-        val_mask = np.zeros(num_nodes, dtype=bool)
-        test_mask = np.zeros(num_nodes, dtype=bool)
-        # 设置掩码
-        train_mask[train_indices] = True
-        val_mask[val_indices] = True
-        test_mask[test_indices] = True
+        train_mask, val_mask, test_mask = self.random_mask(y.shape[0], 42)  # 随机创建掩码向量，用于训练集，验证集，测试集的划分。
         return Data(x=x, y=y, adjacency=adjacency, train_mask=train_mask, val_mask=val_mask, test_mask=test_mask)
 
     @staticmethod
@@ -122,6 +94,26 @@ class CoraData:
         return adjacency
 
     @staticmethod
+    def random_mask(num_nodes, seeds=42):
+        np.random.seed(seeds)  # 设置随机掩码保证结果的可复现
+        indices = np.arange(num_nodes)  # 创建节点索引
+        np.random.shuffle(indices)  # 打乱索引
+        train_end = int(num_nodes * 0.1)  # 采用 10% 10% 80%进行划分
+        val_end = int(num_nodes * 0.2)
+        train_indices = indices[:train_end]
+        val_indices = indices[train_end:val_end]
+        test_indices = indices[val_end:]
+        # 初始化掩码
+        train_mask = np.zeros(num_nodes, dtype=bool)
+        val_mask = np.zeros(num_nodes, dtype=bool)
+        test_mask = np.zeros(num_nodes, dtype=bool)
+        # 设置掩码
+        train_mask[train_indices] = True
+        val_mask[val_indices] = True
+        test_mask[test_indices] = True
+        return train_mask, val_mask, test_mask  # 返回掩码数组
+
+    @staticmethod
     def normalization(adjacency):
         """
                 计算 L=D^-0.5 * (A+I) * D^-0.5
@@ -134,6 +126,9 @@ class CoraData:
 
 if __name__ == '__main__':
     dataset = CoraData().data  # 调用类中方法得到数据
-    print(dataset)
-
-
+    print("Node's feature shape: ", dataset.x.shape)
+    print("Node's label shape: ", dataset.y.shape)
+    print("Adjacency's shape: ", dataset.adjacency.shape)
+    print("Number of training nodes: ", dataset.train_mask.sum())
+    print("Number of validation nodes: ", dataset.val_mask.sum())
+    print("Number of test nodes: ", dataset.test_mask.sum())
