@@ -9,13 +9,14 @@ Project ：GCN
 Project Description：
     用于对且不限于Cora数据集进行数据一般化处理以进行模型后续的搭建：根据训练需求，应给出的数据格式为：
             ('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'test_mask'])该命名元组作为最后的输出对象，其中：
-
             x: 所有节点的特征，shape为(2708, 1433)  为numpy类型
             y: 所有节点的label，shape为(2708, ) 并转化为numpy类型（不采用onehot）
             adjacency: 所有节点的邻接矩阵，shape为(2708, 2708)，这里采用稀疏矩阵存储 scipy.sparse类型
             train_mask: 训练集掩码向量，shape为(2708, )属于训练集的位置值为True，否则False，共140个 为numpy类型
             val_mask: 训练集掩码向量，shape为(2708, )属于验证集的位置值为True，否则False，500 为numpy类型
             test_mask: 训练集掩码向量，shape为(2708, )属于测试集的位置值为True，否则False，共1000个 为numpy类型
+
+            也承接这train中的邻接矩阵规范化问题；
 
 """
 import os.path as osp  # 系统路径操作模块
@@ -34,7 +35,7 @@ class CoraData:
         save_file = osp.join(self.Data_root, "processed_cora.pkl")  # 序列化后的文件：格式为namedtuple
         if osp.exists(save_file):
             print("使用已经处理好数据: {}".format(save_file))
-            self._data = pkl.load(open(save_file, "rb"))  # 反序列化及逆行还原
+            self._data = pkl.load(open(save_file, "rb"))  # 反序列化数据还原
         else:
             self._data = self.process_data()
             with open(save_file, "wb") as f:  # with关键字，语法糖：用于便携式文件关闭
@@ -69,8 +70,9 @@ class CoraData:
         paper_id = list(cora_content.iloc[:, 0])  # 将content第一列取出
         dict_mp = dict(zip(paper_id, content_idx))  # 映射成{论文id:索引编号}的字典形式
 
-        x = cora_content.iloc[:, 1:-1].to_numpy()  # 第二列到倒数第二列,转化为numpy
-        y = pd.Categorical(cora_content.iloc[:, -1]).codes + 1  # 将文字类别转化为类别向量：[3 4 4 ... 3 3 3]
+        x = cora_content.iloc[:, 1:-1].to_numpy(dtype='float32')  # 第二列到倒数第二列,转化为numpy
+        y = pd.Categorical(cora_content.iloc[:, -1]).codes  # 将文字类别转化为类别向量：[3 4 4 ... 3 3 3] (0,6)
+        y = y.astype(np.int64)
         return x, y, dict_mp
 
     @staticmethod
