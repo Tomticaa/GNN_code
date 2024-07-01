@@ -17,8 +17,6 @@ import torch.optim as optim  # 导入优化器
 from Cora_Data_process import CoraData
 from GCN_model import GCN
 
-# TODO 保存好训练的模型
-
 # 定义超参数
 Learning_Rate = 0.01  # 学习率lr
 Weight_Decay = 5e-4  # 权重衰减
@@ -30,9 +28,6 @@ dataset = CoraData().data  # 调用类中方法得到数据
 node_feature = dataset.x / dataset.x.sum(axis=1, keepdims=True)  # 2708个节点特征进行归一化，且保证原来数据形状不变
 # 将原始np数据以tensor形式保存在变量中并移植到GPU
 tensor_x = torch.from_numpy(node_feature).to(Device)
-
-# TODO :y_true  = torch.long?
-
 tensor_y = torch.from_numpy(dataset.y)
 tensor_y = tensor_y.clone().detach().to(Device).long()
 tensor_train_mask = torch.from_numpy(dataset.train_mask).to(Device)
@@ -96,3 +91,8 @@ def test(mask, y):
 train_loss, train_acc, val_loss, val_acc = train()
 test_acc, test_logits = test(tensor_test_mask, tensor_y)  # 计算已得到的模型在测试集上的准确性
 print("Test accuracy:{}  test_loss :{}".format(test_acc.item(), test_logits.mean().item()))
+
+# 保存模型
+torch.save(model, './assets/have_model')
+# 加载模型
+# the_model = torch.load('./assets/have_model')
