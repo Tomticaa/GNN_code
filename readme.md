@@ -8,3 +8,6 @@
 处理后:
 
 ![img_1.png](GCN/assets/img_1.png)
+
+
+经过测试,是数据集的关系

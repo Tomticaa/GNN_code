@@ -22,7 +22,7 @@ Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'tes
 class CoraData:
     def __init__(self, Data_root='../Dataset/cora'):  # 将文件夹作为参数传入
         self.Data_root = Data_root
-        save_file = osp.join(self.Data_root, "processed_cora.pkl")  # 序列化后的文件：格式为namedtuple
+        save_file = osp.join(self.Data_root, "dataset.pkl")  # 序列化后的文件：格式为namedtuple
         if osp.exists(save_file):
             print("使用已经处理好数据: {}".format(save_file))
             self._data = pkl.load(open(save_file, "rb"))  # 反序列化及逆行还原
@@ -117,5 +117,8 @@ class CoraData:
 
 data_root = "../Dataset/cora"
 save_file = osp.join(data_root, "processed_cora.pkl")
+save_file_1 = osp.join(data_root, "processed_cora_1.pkl")
 data = pkl.load(open(save_file, "rb"))
-print(data.y.dtype)  # [2 5 4 4 3 3 6 2 2 6]  int8
+data_1 = pkl.load(open(save_file_1, "rb"))
+print(data.y[:10])    # [2 5 4 4 3 3 6 2 2 6]
+print(data_1.y[:10])  # [3 4 4 0 3 2 0 3 3 2]

@@ -14,22 +14,23 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim  # 导入优化器
-from Cora_Data_process import CoraData
+from dataset import CoraData
 from GCN_model import GCN
 
 # 定义超参数
 Learning_Rate = 0.01  # 学习率lr
 Weight_Decay = 5e-4  # 权重衰减
-Epochs = 50  # 迭代轮次
-seeds = 10  # 随机种子用于数据集划分
+Epochs = 500  # 迭代轮次
 Device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # 指定计算设备
+Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'test_mask'])
+
 # 加载数据，转化为tensor，移至GPU计算
 dataset = CoraData().data  # 调用类中方法得到数据
 node_feature = dataset.x / dataset.x.sum(axis=1, keepdims=True)  # 2708个节点特征进行归一化，且保证原来数据形状不变
 # 将原始np数据以tensor形式保存在变量中并移植到GPU
 tensor_x = torch.from_numpy(node_feature).to(Device)
-tensor_y = torch.from_numpy(dataset.y)
-tensor_y = tensor_y.clone().detach().to(Device).long()
+tensor_y = torch.from_numpy(dataset.y).to(Device)
+# tensor_y = tensor_y.clone().detach().to(Device).long()
 tensor_train_mask = torch.from_numpy(dataset.train_mask).to(Device)
 tensor_val_mask = torch.from_numpy(dataset.val_mask).to(Device)
 tensor_test_mask = torch.from_numpy(dataset.test_mask).to(Device)
@@ -55,10 +56,10 @@ def train():
     val_loss_history = []  # 创建列表用于保存迭代信息，用于画图
     train_y = tensor_y[tensor_train_mask]  # 获取训练集标签值
     for epoch in range(Epochs):
-        optimizer.zero_grad()  # 空之前的梯度信息（如果有的话）
-        logits = model(tensor_x, tensor_adjacency)  # 前向传播
+        logits = model(tensor_adjacency, tensor_x)  # 前向传播
         train_mask_logits = logits[tensor_train_mask]  # 仅选择带有训练掩码的输出进行训练
         loss = criterion(train_mask_logits, train_y)
+        optimizer.zero_grad()  # 空之前的梯度信息（如果有的话）
         loss.backward()  # 反向传播
         optimizer.step()  # 梯度更新
         train_acc, train_loss = test(tensor_train_mask, tensor_y)
@@ -79,7 +80,7 @@ def train():
 def test(mask, y):
     model.eval()  # model.eval()：不进行梯度计算，仅使用训练过后得到的参数在验证集和测试集上及进行前向传播,不进行反向传播以及参数更新;
     with torch.no_grad():
-        logits = model(tensor_x, tensor_adjacency)
+        logits = model(tensor_adjacency, tensor_x)
         test_mask_logits = logits[mask]
         loss = criterion(test_mask_logits, y[mask])
         predict_y = test_mask_logits.max(1)[1]  # 选择所有概率中最大概率的类作为预测结果,寻找行维度的最大值对应的索引
@@ -93,6 +94,6 @@ test_acc, test_logits = test(tensor_test_mask, tensor_y)  # 计算已得到的�
 print("Test accuracy:{}  test_loss :{}".format(test_acc.item(), test_logits.mean().item()))
 
 # 保存模型
-torch.save(model, './assets/have_model')
-# 加载模型
+# torch.save(model, './assets/have_model')
+# 加载模型s
 # the_model = torch.load('./assets/have_model')
