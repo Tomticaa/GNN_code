@@ -14,13 +14,13 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim  # 导入优化器
-from dataset import CoraData
+from new_dataset import CoraData
 from GCN_model import GCN
 
 # 定义超参数
 Learning_Rate = 0.01  # 学习率lr
 Weight_Decay = 5e-4  # 权重衰减
-Epochs = 500  # 迭代轮次
+Epochs = 1000  # 迭代轮次
 Device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")  # 指定计算设备
 Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'test_mask'])
 
@@ -30,7 +30,7 @@ node_feature = dataset.x / dataset.x.sum(axis=1, keepdims=True)  # 2708个节点
 # 将原始np数据以tensor形式保存在变量中并移植到GPU
 tensor_x = torch.from_numpy(node_feature).to(Device)
 tensor_y = torch.from_numpy(dataset.y).to(Device)
-# tensor_y = tensor_y.clone().detach().to(Device).long()
+tensor_y = tensor_y.clone().detach().to(Device).long()
 tensor_train_mask = torch.from_numpy(dataset.train_mask).to(Device)
 tensor_val_mask = torch.from_numpy(dataset.val_mask).to(Device)
 tensor_test_mask = torch.from_numpy(dataset.test_mask).to(Device)
@@ -60,7 +60,7 @@ def train():
         train_mask_logits = logits[tensor_train_mask]  # 仅选择带有训练掩码的输出进行训练
         loss = criterion(train_mask_logits, train_y)
         optimizer.zero_grad()  # 空之前的梯度信息（如果有的话）
-        loss.backward()  # 反向传播
+        loss.backward()  # 反向传 播
         optimizer.step()  # 梯度更新
         train_acc, train_loss = test(tensor_train_mask, tensor_y)
         # 直接使用train得到的模型参数进行val集的前向传播计算损失

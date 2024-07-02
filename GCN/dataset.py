@@ -37,7 +37,7 @@ Data = namedtuple('Data', ['x', 'y', 'adjacency', 'train_mask', 'val_mask', 'tes
 class CoraData:
     def __init__(self, Data_root='../Dataset/cora'):  # 将文件夹作为参数传入
         self.Data_root = Data_root
-        save_file = osp.join(self.Data_root, "processed_cora_1.pkl")  # 序列化后的文件：格式为namedtuple
+        save_file = osp.join(self.Data_root, "processed_cora.pkl")  # 序列化后的文件：格式为namedtuple
         if osp.exists(save_file):
             print("使用已经处理好数据: {}".format(save_file))
             self._data = pkl.load(open(save_file, "rb"))  # 反序列化数据还原
@@ -105,8 +105,8 @@ class CoraData:
         # np.random.seed(seeds)  # 设置随机掩码保证结果的可复现
         indices = np.arange(num_nodes)  # 创建节点索引
         # np.random.shuffle(indices)  # 打乱索引
-        train_end = int(num_nodes * 0.8)  # 采用 10% 10% 80%进行划分
-        val_end = int(num_nodes * 0.9)
+        train_end = int(num_nodes * 0.2)  # 采用 10% 10% 80%进行划分
+        val_end = int(num_nodes * 0.4)
         train_indices = indices[:train_end]
         val_indices = indices[train_end:val_end]
         test_indices = indices[val_end:]

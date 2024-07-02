@@ -66,6 +66,7 @@ class GCN(nn.Module):
         super(GCN, self).__init__()
         self.gcn1 = GraphConvolution(input_dim, 128)  # 将每个节点的最初维度1433，最终转化为分类的7个维度；
         self.gcn2 = GraphConvolution(128, 7)
+
     def forward(self, adjacency, feature):
         h = F.relu(self.gcn1(adjacency, feature))
         logits = F.softmax(self.gcn2(adjacency, h), dim=-1)  # softmax函数用于分类；  # softmax函数用于分类；
