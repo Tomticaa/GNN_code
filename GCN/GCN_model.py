@@ -12,11 +12,6 @@ Project Description：
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import torch.nn.init as init  # 调用该模块可对权重矩阵进行逐元素初始化
-
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.nn.init as init
 
 

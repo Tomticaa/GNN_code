@@ -7,7 +7,7 @@ File    ：Cora_vis.py
 Date    ：2024/7/2 下午4:07 
 Project ：GNN_code 
 Project Description：
-    用于Cora数据集的可视化
+    用于Cora数据集的可视化，torch版本太低
 """
 
 import dgl

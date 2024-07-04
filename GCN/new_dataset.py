@@ -97,10 +97,10 @@ class CoraData:
 
 if __name__ == '__main__':
     dataset = CoraData().data  # 调用类中方法得到数据
-    # print("Node's feature shape: ", dataset.x.shape)
-    # print("Node's label shape: ", dataset.y.shape)
-    # print("Adjacency's shape: ", dataset.adjacency.shape)
-    # print("Number of training nodes: ", dataset.train_mask.sum())
-    # print("Number of validation nodes: ", dataset.val_mask.sum())
-    # print("Number of test nodes: ", dataset.test_mask.sum())
-    print(dataset.x.shape)
+    print("Node's feature shape: ", dataset.x.shape)
+    print("Node's label shape: ", dataset.y.shape)
+    print("Adjacency's shape: ", dataset.adjacency.shape)
+    print("Number of training nodes: ", dataset.train_mask.sum())
+    print("Number of validation nodes: ", dataset.val_mask.sum())
+    print("Number of test nodes: ", dataset.test_mask.sum())
+    # print(dataset.x.shape)

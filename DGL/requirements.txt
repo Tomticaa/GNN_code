@@ -1,0 +1,4 @@
+python == 3.8.19
+pytorch == 2.2.2
+pytorch-cuda == 12.1
+
