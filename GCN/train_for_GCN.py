@@ -14,7 +14,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim  # 导入优化器
-from new_dataset import CoraData
+from dataset_for_GCN import CoraData
 from GCN_model import GCN
 
 # 定义超参数
