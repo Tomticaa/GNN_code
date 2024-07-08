@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="完成GAT代码对接部分，对客制化数据集进行合理命名。搭建的GAT网络准确率不及官方，经过训练准确率下降？">
+      <change afterPath="$PROJECT_DIR$/GAT/GAT_CSDN/GAT.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,6 +54,7 @@
     "Python.Cora.Data_process.executor": "Run",
     "Python.Cora_Data_process (1).executor": "Run",
     "Python.Cora_vis.executor": "Run",
+    "Python.GAT.executor": "Run",
     "Python.GAT_model.executor": "Run",
     "Python.GCN_.executor": "Run",
     "Python.GCN_for_cora (1).executor": "Run",
@@ -80,7 +82,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "http.proxy",
+    "settings.editor.selected.configurable": "preferences.sourceCode",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -99,7 +101,30 @@
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\Dataset" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dataset_for_GCN">
+  <component name="RunManager" selected="Python.GAT">
+    <configuration name="GAT" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GNN_code" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAT/GAT_CSDN" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GAT/GAT_CSDN/GAT.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dataset_for_GAT" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GNN_code" />
       <option name="ENV_FILES" value="" />
@@ -192,36 +217,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="train_for_GAT" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GNN_code" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GAT" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\14973\PycharmProjects\GNN_code\GAT\train_for_GAT.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GAT" />
         <item itemvalue="Python.dataset_for_GCN" />
         <item itemvalue="Python.dataset_for_GCN (1)" />
         <item itemvalue="Python.dataset_for_GCN(2)" />
         <item itemvalue="Python.dataset_for_GAT" />
-        <item itemvalue="Python.train_for_GAT" />
       </list>
     </recent_temporary>
   </component>
@@ -265,7 +267,7 @@
       <workItem from="1720330141839" duration="105000" />
       <workItem from="1720330255690" duration="3343000" />
       <workItem from="1720333705459" duration="4572000" />
-      <workItem from="1720405333961" duration="16208000" />
+      <workItem from="1720405333961" duration="19030000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -403,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720422227875</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="完成GAT代码对接部分，对客制化数据集进行合理命名。搭建的GAT网络准确率不及官方，经过训练准确率下降？">
+      <option name="closed" value="true" />
+      <created>1720422882791</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1720422882791</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,6 +485,7 @@
     <SUITE FILE_PATH="coverage/GNN_code$dataset_process.coverage" NAME="dataset_process 覆盖结果" MODIFIED="1719479272148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process.coverage" NAME="Cora.Data_process 覆盖结果" MODIFIED="1719655548104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process__1_.coverage" NAME="Cora_Data_process (1) 覆盖结果" MODIFIED="1719830033693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
+    <SUITE FILE_PATH="coverage/GNN_code$GAT.coverage" NAME="GAT 覆盖结果" MODIFIED="1720425423343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_CSDN" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_vis.coverage" NAME="Cora_vis 覆盖结果" MODIFIED="1720060017528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Dataset/Data_Visualization" />
     <SUITE FILE_PATH="coverage/GNN_code$model_train.coverage" NAME="model_train 覆盖结果" MODIFIED="1720068582138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$test.coverage" NAME="test 覆盖结果" MODIFIED="1720334882320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DGL" />
