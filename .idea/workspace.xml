@@ -4,68 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="配置DGL环境执行数据集可视化以及便携GNN搭建">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DGL/GCN/Cora_vis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DGL/GCN/GCN_for_cora.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/processed_cora_for_GAT.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.allx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.ally" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.test.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.tx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.ty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.x" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.citeseer.y" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.allx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.ally" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.test.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.tx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.ty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.x" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.cora.y" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.allx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.ally" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.test.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.tx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.ty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.x" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/ind.pubmed.y" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.citeseer.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.citeseer.tx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.citeseer.ty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.citeseer.x" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.citeseer.y" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.cora.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.cora.tx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.cora.ty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.cora.x" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.cora.y" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.pubmed.graph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.pubmed.tx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.pubmed.ty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.pubmed.x" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/raw/trans.pubmed.y" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GAT/GAT_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GAT/dataset_for_GAT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GAT/train_for_GAT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GCN/dataset_for_GCN.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GNN_code.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GNN_code.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DGL/GCN/dataset.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DGL/GCN/model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DGL/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/DGL/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset/cora/new_processed_cora.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset/cora/processed_cora_for_GCN(2).pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset/cora/processed_cora.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset/cora/processed_cora_for_GCN(1).pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GCN/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/dataset_for_GCN(1).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GCN/model_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GCN/new_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/dataset_for_GCN(2).py" afterDir="false" />
+    <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="完成GAT代码对接部分，对客制化数据集进行合理命名。搭建的GAT网络准确率不及官方，经过训练准确率下降？">
+      <change afterPath="$PROJECT_DIR$/Dataset/cora_proceed/processed_cora_for_GCN.pkl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +80,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "inlay.hints",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -325,7 +265,7 @@
       <workItem from="1720330141839" duration="105000" />
       <workItem from="1720330255690" duration="3343000" />
       <workItem from="1720333705459" duration="4572000" />
-      <workItem from="1720405333961" duration="15471000" />
+      <workItem from="1720405333961" duration="15716000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -447,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720081234128</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="完成GAT代码对接部分，对客制化数据集进行合理命名。搭建的GAT网络准确率不及官方，经过训练准确率下降？">
+      <option name="closed" value="true" />
+      <created>1720422100289</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1720422100289</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +455,8 @@
     <MESSAGE value="debug成功,但是模型准确率较低仅有六成,估计是训练及数量太少,不能达到较好效果." />
     <MESSAGE value="数据集的随机划分破坏了子图的连接结构,没有考虑到图中节点间的连通性，导致训练集可能无法代表整个图的特性。影响模型的泛化能力" />
     <MESSAGE value="配置DGL环境执行数据集可视化以及便携GNN搭建" />
-    <option name="LAST_COMMIT_MESSAGE" value="配置DGL环境执行数据集可视化以及便携GNN搭建" />
+    <MESSAGE value="完成GAT代码对接部分，对客制化数据集进行合理命名。搭建的GAT网络准确率不及官方，经过训练准确率下降？" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成GAT代码对接部分，对客制化数据集进行合理命名。搭建的GAT网络准确率不及官方，经过训练准确率下降？" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/GNN_code$new.coverage" NAME="new 覆盖结果" MODIFIED="1719909386099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Dataset/Data_Visualization" />
