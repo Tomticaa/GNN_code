@@ -72,7 +72,6 @@ if __name__ == '__main__':
     parser.add_argument('--dropout', type=float, default=0.6, help='Dropout rate (1 - keep probability).')
     parser.add_argument('--alpha', type=float, default=0.2, help='Alpha for the leaky_relu.')
     parser.add_argument('--patience', type=int, default=100, help='Patience')  # 早停参数，用于防止模型过拟合并缩短训练时间
-    parser.add_argument('--seed', type=int, default=17, help='Seed number')
 
     args = parser.parse_args()  # 获取所有参数
 
