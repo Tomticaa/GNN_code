@@ -16,5 +16,10 @@ conda env export > environment.yml :打包环境
 conda env create -f environment.yml ：在新机器上创建环境
 
 
+git config --global --get http.proxy
+git config --global --get https.proxy ：查看代理
 
+git config --global --unset http.proxy
+git config --global --unset https.proxy ：git取消代理
 
+git 推送失败: 检查git设置
