@@ -65,21 +65,23 @@ def compute_test():
 
 
 if __name__ == '__main__':
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--lr', type=float, default=0.005, help='learning rate')
+    # argparse模块是命令行选项、参数和子命令解析器。可以让人轻松编写用户友好的命令行接口。适用于代码需要频繁地修改参数的情况。
+    parser = argparse.ArgumentParser(description="用来装参数的容器")  # 用来装载参数的容器
+    parser.add_argument('--lr', type=float, default=0.005, help='learning rate')  # 给这个解析对象添加命令行参数
     parser.add_argument('--hidden', type=int, default=8, help='hidden size')
     parser.add_argument('--epochs', type=int, default=1000, help='Number of training epochs')
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='Weight decay')
     parser.add_argument('--nheads', type=int, default=8, help='Number of head attentions')
     parser.add_argument('--dropout', type=float, default=0.6, help='Dropout rate (1 - keep probability).')
     parser.add_argument('--alpha', type=float, default=0.2, help='Alpha for the leaky_relu.')
-    parser.add_argument('--patience', type=int, default=100, help='Patience')
+    parser.add_argument('--patience', type=int, default=100, help='Patience')  # 早停参数，用于防止模型过拟合并缩短训练时间
     parser.add_argument('--seed', type=int, default=17, help='Seed number')
-    args = parser.parse_args()
+
+    args = parser.parse_args()  # 获取所有参数
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
+
     adj, features, labels, idx_train, idx_val, idx_test = load_data()
     adj = adj.to(Device)
     features = features.to(Device)
@@ -98,7 +100,7 @@ if __name__ == '__main__':
     best = 1000 + 1
     best_epoch = 0
 
-    for epoch in range(1000):
+    for epoch in range(args.epochs):
         loss_values.append(train(epoch))
         if loss_values[-1] < best:
             best = loss_values[-1]
@@ -106,9 +108,14 @@ if __name__ == '__main__':
             bad_counter = 0
         else:
             bad_counter += 1
-
-        if bad_counter == args.patience:
+        if bad_counter == args.patience:  # 设置早挺
             break
     print("Optimization Finished!")
     print("Total time elapsed: {:.4f}s".format(time.time() - t_total))
     compute_test()
+    """
+    在每个训练周期（epoch）结束时，程序会检查模型在验证集上的表现（如损失或准确率）。
+    如果在某个周期中，模型的表现优于之前所有周期的最佳表现，则更新这个最佳表现的记录，并重置一个计数器（这里的计数器对应代码中的 bad_counter）。
+    如果模型的表现没有改善，则增加计数器的值。
+    当这个计数器的值达到 patience 设置的阈值时，认为模型已经停止改进，终止训练过程。
+    """
