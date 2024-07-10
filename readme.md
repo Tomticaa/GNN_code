@@ -19,6 +19,6 @@
 ### 用于GAT代码复现
 
 * GAT代码浮现完毕，改进对原始数据集的处理,数据集的随机划分
-* 代码准确率 最高可达 0.864+
+* 代码运行800+epoch达到收敛，准确率 最高可达 0.865+
 
-![image.png](assets/image.png)
+![image.png](assets/image.png?t=1720583374031)
