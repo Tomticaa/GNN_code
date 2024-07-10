@@ -29,8 +29,8 @@ print("CUDA是否可用： ", torch.cuda.is_available())
 def accuracy(output, labels):  # 计算准确率
     preds = output.max(1)[1].type_as(labels)
     correct = preds.eq(labels).double()
-    correct = correct.sum()
-    return correct / len(labels)
+    correct = correct.mean()
+    return correct
 
 
 def train(epoch):
@@ -43,9 +43,10 @@ def train(epoch):
     loss_train.backward()
     optimizer.step()
     model.eval()  # 模型评估阶段
-    output = model(features, adj)
-    loss_val = criterion(output[idx_val], labels[idx_val])
-    acc_val = accuracy(output[idx_val], labels[idx_val])
+    with torch.no_grad():
+        output = model(features, adj)
+        loss_val = criterion(output[idx_val], labels[idx_val])
+        acc_val = accuracy(output[idx_val], labels[idx_val])
     print('Epoch: {:04d}'.format(epoch + 1),
           'loss_train: {:.4f}'.format(loss_train.data.item()),
           'acc_train: {:.4f}'.format(acc_train.data.item()),
@@ -111,14 +112,17 @@ def tsne_visualize():
 if __name__ == '__main__':
     # argparse模块是命令行选项、参数和子命令解析器。可以让人轻松编写用户友好的命令行接口。适用于代码需要频繁地修改参数的情况。
     parser = argparse.ArgumentParser(description="用来装参数的容器")  # 用来装载参数的容器
-    parser.add_argument('--lr', type=float, default=0.005, help='learning rate')  # 给这个解析对象添加命令行参数
-    parser.add_argument('--hidden', type=int, default=8, help='hidden size')
-    parser.add_argument('--epochs', type=int, default=1000, help='Number of training epochs')
+    parser.add_argument('--lr', type=float, default=0.05, help='learning rate')  # 给这个解析对象添加命令行参数
+    parser.add_argument('--hidden', type=int, default=128, help='hidden size')
+    parser.add_argument('--epochs', type=int, default=200, help='Number of training epochs')
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='Weight decay')
     parser.add_argument('--multi_head', type=int, default=8, help='Number of head attentions')
-    parser.add_argument('--dropout', type=float, default=0.6, help='Dropout rate (1 - keep probability).')
+    parser.add_argument('--dropout', type=float, default=0.3, help='Dropout rate (1 - keep probability).')
     parser.add_argument('--alpha', type=float, default=0.2, help='Alpha for the leaky_relu.')
     parser.add_argument('--patience', type=int, default=100, help='Patience')  # 早停参数，用于防止模型过拟合并缩短训练时间
+    # 原始超参数设定：准确率高达：0.865+
+    # model = GAT(input_size=features.shape[1], hidden_size=8, output_size=7, dropout=0.6, alpha=0.2, multi_head=8)
+    # optimizer = optim.Adam(model.parameters(), lr=0.005, weight_decay=5e-4)
 
     args = parser.parse_args()  # 获取所有参数
 
@@ -131,7 +135,7 @@ if __name__ == '__main__':
     idx_test = idx_test.to(Device)
 
     model = GAT(input_size=features.shape[1], hidden_size=args.hidden, output_size=int(labels.max()) + 1, dropout=args.dropout, alpha=args.alpha, multi_head=args.multi_head).to(Device)
-    criterion = nn.CrossEntropyLoss().to(Device).to(Device)
+    criterion = nn.CrossEntropyLoss().to(Device)
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
     t_total = time.time()
@@ -160,6 +164,7 @@ if __name__ == '__main__':
             break
     print("Optimization Finished!")
     print("Total time elapsed: {:.4f}s".format(time.time() - t_total))
+    print("best epoch: ", best_epoch)
     plot_loss_with_acc(train_loss_history, train_acc_history, val_loss_history, val_acc_history)
     tsne_visualize()
 

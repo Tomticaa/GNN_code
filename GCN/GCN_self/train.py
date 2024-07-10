@@ -16,7 +16,7 @@ import torch.optim as optim
 import argparse
 
 from dataset import load_data
-from model_GAT import GAT
+from model_GCN import GCN
 
 Device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 print(torch.cuda.is_available())
@@ -79,8 +79,8 @@ if __name__ == '__main__':
     idx_test = idx_test.to(Device)
 
     # 实例化模型
-    # model = GCN(features.shape[1]).to(Device)  # dim = 1433
-    model = GAT(input_size=features.shape[1], hidden_size=args.hidden, output_size=int(labels.max()) + 1, dropout=args.dropout, alpha=args.alpha, multi_head=args.multi_head).to(Device)
+    model = GCN(features.shape[1]).to(Device)  # dim = 1433
+    # model = GAT(input_size=features.shape[1], hidden_size=args.hidden, output_size=int(labels.max()) + 1, dropout=args.dropout, alpha=args.alpha, multi_head=args.multi_head).to(Device)
     criterion = nn.CrossEntropyLoss().to(Device)
     optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
     for epoch in range(args.epochs):
