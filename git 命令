@@ -1,0 +1,14 @@
+$ git config --global user.name 查看用户及邮件地址
+$ git config --global user.email
+$ git config --global user.name "yourName" 设置用户及邮件地址
+$ git config --global user.email "your@email.com"
+$ git config --global --unset user.name "yourName" 删除用户及其邮件地址
+$ git config --global --unset user.email "your@email.com"
+
+$ la -al ~/.ssh 查看是否存在ssh密钥
+$ ssh-keygen -t rsa -C "your.email@example.com" 生成密钥在github里使用
+$ cat ~/.ssh/id_rsa.pub 查看密钥
+$ git remote -v 查看git提交与拉取方式
+$ git remote set-url origin git@github.com:Tomticaa/GNN_code.git 将http连接改为ssh连接
+
+$ echo 'GNN-code.tar.gz'>> .gitignore  添加大文件夹加入忽略文件，避免其被git追踪
