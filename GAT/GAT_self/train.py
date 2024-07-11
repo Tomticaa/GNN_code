@@ -95,11 +95,11 @@ def plot_loss_with_acc(train_loss_history, train_acc_history, val_loss_history, 
     plt.show()
 
 
-def tsne_visualize():
+def tsne_visualize():  # 节点聚类可视化
     test_logits, test_label = compute_test()
     tsne = TSNE()
     out = tsne.fit_transform(test_logits)
-    fig = plt.figure()
+    plt.figure()
     for i in range(7):
         indices = test_label == i
         x, y = out[indices].T
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     parser.add_argument('--epochs', type=int, default=200, help='Number of training epochs')
     parser.add_argument('--weight_decay', type=float, default=5e-4, help='Weight decay')
     parser.add_argument('--multi_head', type=int, default=8, help='Number of head attentions')
-    parser.add_argument('--dropout', type=float, default=0.3, help='Dropout rate (1 - keep probability).')
+    parser.add_argument('--dropout', type=float, default=0.5, help='Dropout rate (1 - keep probability).')
     parser.add_argument('--alpha', type=float, default=0.2, help='Alpha for the leaky_relu.')
     parser.add_argument('--patience', type=int, default=100, help='Patience')  # 早停参数，用于防止模型过拟合并缩短训练时间
     # 原始超参数设定：准确率高达：0.865+

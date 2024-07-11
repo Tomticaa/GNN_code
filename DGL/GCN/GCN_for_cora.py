@@ -10,36 +10,78 @@ Project Description：
     使用 dgl 及内置 Cora 数据集实现GCN实现节点分类
 """
 import dgl
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 from dgl.data import CoraGraphDataset
-import networkx as nx
-import matplotlib.pyplot as plt
+from dgl.nn import GraphConv
 
-# 加载Cora数据集
-dataset = CoraGraphDataset()
-graph = dataset[0]
 
-# 将DGL图对象转换为NetworkX图对象
-nx_graph = graph.to_networkx(node_attrs=['label'])
+class GCN(nn.Module):
+    """
+    GCN network
+    """
 
-# 获取节点标签（用于着色）
-labels = nx.get_node_attributes(nx_graph, 'label')
+    def __init__(self, in_feats, h_feats, num_classes):
+        super(GCN, self).__init__()
+        self.conv1 = GraphConv(in_feats, h_feats)
+        self.conv2 = GraphConv(h_feats, num_classes)
 
-# 定义颜色映射（颜色值应为数字类型，以便colormap能够正确映射）
-unique_labels = list(set(labels.values()))
-label_to_color = {label: i for i, label in enumerate(unique_labels)}
-node_colors = [label_to_color[labels[node]] for node in nx_graph.nodes()]
+    def forward(self, g, in_feat):
+        h = self.conv1(g, in_feat)
+        h = F.relu(h)
+        h = self.conv2(g, h)
+        return h
 
-# 绘制图
-plt.figure(figsize=(12, 12))
-pos = nx.spring_layout(nx_graph, seed=42)  # 使用spring布局
 
-# 绘制节点
-nx.draw_networkx_nodes(nx_graph, pos, node_color=node_colors, node_size=300, cmap=plt.cm.tab10)
+def train(g, model, num_epoch=1000, learning_rate=0.001):
+    """
+    train function
+    """
+    optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+    best_val_accurate = 0
+    best_test_accurate = 0
 
-# 绘制边
-nx.draw_networkx_edges(nx_graph, pos, alpha=0.5)
+    features = g.ndata["feat"]
+    labels = g.ndata["label"]
+    train_mask = g.ndata["train_mask"]
+    test_mask = g.ndata["test_mask"]
+    val_mask = g.ndata["val_mask"]
 
-# 绘制标签
-nx.draw_networkx_labels(nx_graph, pos, font_size=12)
+    for e in range(num_epoch):
+        # forward
+        result = model(g, features)
+        # prediction
+        pred = result.argmax(dim=1)
+        # Loss
+        loss = F.cross_entropy(result[train_mask], labels[train_mask])
+        # compute accurate
+        train_accurate = (pred[train_mask] == labels[train_mask]).float().mean()
+        test_accurate = (pred[test_mask] == labels[test_mask]).float().mean()
+        val_accurate = (pred[val_mask] == labels[val_mask]).float().mean()
+        if best_val_accurate < val_accurate:
+            best_val_accurate, best_test_accurate = val_accurate, test_accurate
+        # backward
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
-plt.show()
+        if e % 5 == 0:
+            print('In epoch {}, loss: {:.3f}, val acc: {:.3f} (best {:.3f}), test acc: {:.3f} (best {:.3f})'.format(
+                e, loss, val_accurate, best_val_accurate, test_accurate, best_test_accurate))
+
+
+def main():
+    dataset = CoraGraphDataset()
+    g = dataset[0]
+
+    in_feats = g.ndata["feat"].shape[1]
+    h_feats = 16
+    num_classes = dataset.num_classes
+
+    model = GCN(in_feats, h_feats, num_classes)
+    train(g, model)
+
+
+if __name__ == "__main__":
+    main()
