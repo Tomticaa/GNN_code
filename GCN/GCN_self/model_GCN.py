@@ -14,6 +14,17 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
 
+"""
+`nn.functional`中的函数和`nn.Module`的主要区别在于：
+使用`nn.Module`实现的layer是一个特殊的类，其由`class layer(nn.Module)`定义，
+会自动提取可学习的参数；使用`nn.functional`实现的layer更像是纯函数，由`def function(input)`定义。
+如果模型具有可学习的参数，那么最好用`nn.Module`，否则既可以使用`nn.functional`，也可以使用`nn.Module`。
+二者在性能上没有太大差异，具体的选择取决于个人的喜好。由于激活函数（如ReLU、sigmoid、tanh）、池化（如MaxPool）等层没有可学习参数，
+可以使用对应的`functional`函数代替，对于卷积、全连接等具有可学习参数的层，建议使用`nn.Module`。
+另外，虽然dropout操作也没有可学习参数，但是建议使用`nn.Dropout`而不是`nn.functional.dropout`，
+因为dropout在训练和测试两个阶段的行为有所差异，使用`nn.Module`对象能够通过`model.eval()`操作加以区分。
+"""
+
 
 class GraphConvolution(nn.Module):
     def __init__(self, input_dim, output_dim, use_bias=True):
@@ -24,7 +35,7 @@ class GraphConvolution(nn.Module):
         :param use_bias: 是否偏置
         """
         super(GraphConvolution, self).__init__()
-        self.input_dim = input_dim
+        self.input_dim = input_dim  # 调用 Module中的 __setattr__ 构造方法，实现了属性的动态建立；如果 input = self.input 则调用了类中的__getattr__方法获得类中的属性
         self.output_dim = output_dim
         self.use_bias = use_bias
         # 将权重矩阵转化为可自动更新去权重的parameter形式，其矩阵的形状为input_dim*output_dim

@@ -8,8 +8,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1124ee2-be4c-46c2-a9d6-8a4457372ef6" name="更改" comment="增加git命令，及其大文件忽略机制">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/DGL/GCN_for_Graph_classification/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DGL/GCN_for_Graph_classification/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DGL/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT/管理.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/assets/img/acc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/assets/img/loss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/assets/img/tsne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/assets/model/GAT_cora" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/model_assets" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GAT_self/train_new.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ch7_cached.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.allx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.ally" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.graph" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.test.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.tx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.ty" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.x" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/cora/ind.cora.y" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/sample.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphSage/train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graph_enhance/Graph_Aug.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DGL/GCN/GCN_for_cora.py" beforeDir="false" afterPath="$PROJECT_DIR$/DGL/GCN/GCN_for_cora.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GAT/GAT_self/assets/acc.png" beforeDir="false" afterPath="$PROJECT_DIR$/GAT/GAT_self/assets/acc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GAT/GAT_self/assets/loss.png" beforeDir="false" afterPath="$PROJECT_DIR$/GAT/GAT_self/assets/loss.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GAT/GAT_self/assets/tsne.png" beforeDir="false" afterPath="$PROJECT_DIR$/GAT/GAT_self/assets/tsne.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GCN/GCN_self/model_GCN.py" beforeDir="false" afterPath="$PROJECT_DIR$/GCN/GCN_self/model_GCN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +61,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -54,98 +89,182 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.Cora.Data_process.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Cora_Data_process (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.Cora_vis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GAT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GAT_CSDN.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GAT_model.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GCN_.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GCN_for_cora (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.GCN_for_cora.executor&quot;: &quot;Run&quot;,
-    &quot;Python.GCN_model.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_GAT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_for_GAT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_for_GCN (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_for_GCN(1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_for_GCN.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_for_GCN_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_for_GCN_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dataset_process.executor&quot;: &quot;Run&quot;,
-    &quot;Python.model_GAT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.model_GCN.executor&quot;: &quot;Run&quot;,
-    &quot;Python.model_train.executor&quot;: &quot;Run&quot;,
-    &quot;Python.new.executor&quot;: &quot;Run&quot;,
-    &quot;Python.new_cora_dataset.executor&quot;: &quot;Run&quot;,
-    &quot;Python.new_cora_train.executor&quot;: &quot;Run&quot;,
-    &quot;Python.new_dataset.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.train (2).executor&quot;: &quot;Run&quot;,
-    &quot;Python.train.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train_GAT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train_for_GAT.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train_for_GCN.executor&quot;: &quot;Run&quot;,
-    &quot;Python.train_new.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/14973/PycharmProjects/GNN_code/GCN/new_GCN&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.BNIO.executor": "Run",
+    "Python.Cora.Data_process.executor": "Run",
+    "Python.Cora_Data_process (1).executor": "Run",
+    "Python.Cora_vis.executor": "Run",
+    "Python.GAT.executor": "Run",
+    "Python.GAT_CSDN.executor": "Run",
+    "Python.GAT_model.executor": "Run",
+    "Python.GCN_.executor": "Run",
+    "Python.GCN_for_cora (1).executor": "Run",
+    "Python.GCN_for_cora.executor": "Run",
+    "Python.GCN_model.executor": "Run",
+    "Python.data.executor": "Run",
+    "Python.dataset (1).executor": "Run",
+    "Python.dataset (2).executor": "Run",
+    "Python.dataset.executor": "Run",
+    "Python.dataset_GAT.executor": "Run",
+    "Python.dataset_for_GAT.executor": "Run",
+    "Python.dataset_for_GCN (1).executor": "Run",
+    "Python.dataset_for_GCN(1).executor": "Run",
+    "Python.dataset_for_GCN.executor": "Run",
+    "Python.dataset_for_GCN_1.executor": "Run",
+    "Python.dataset_for_GCN_2.executor": "Run",
+    "Python.dataset_process.executor": "Run",
+    "Python.model (1).executor": "Run",
+    "Python.model.executor": "Run",
+    "Python.model_GAT.executor": "Run",
+    "Python.model_GCN.executor": "Run",
+    "Python.model_train.executor": "Run",
+    "Python.new.executor": "Run",
+    "Python.new_cora_dataset.executor": "Run",
+    "Python.new_cora_train.executor": "Run",
+    "Python.new_dataset.executor": "Run",
+    "Python.sample.executor": "Run",
+    "Python.test (1).executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.train (1).executor": "Run",
+    "Python.train (2).executor": "Run",
+    "Python.train.executor": "Run",
+    "Python.train_GAT.executor": "Run",
+    "Python.train_for_GAT.executor": "Run",
+    "Python.train_for_GCN.executor": "Run",
+    "Python.train_new (1).executor": "Run",
+    "Python.train_new.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/14973/PycharmProjects/GNN_code/GraphSage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\14973\PycharmProjects\GNN_code\GraphSage" />
+      <recent name="C:\Users\14973\PycharmProjects\GNN_code" />
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\GCN\new_GCN" />
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\GCN" />
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\Dataset\cora_procceed" />
-      <recent name="C:\Users\14973\PycharmProjects\GNN_code\GAT" />
-      <recent name="C:\Users\14973\PycharmProjects\GNN_code\Dataset\cora" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\14973\PycharmProjects\GNN_code\DGL" />
+      <recent name="C:\Users\14973\PycharmProjects\GNN_code\GAT_self" />
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\assets" />
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\GCN\自建cora处理函数效果不理想" />
       <recent name="C:\Users\14973\PycharmProjects\GNN_code\GCN\GCN_CSDN" />
-      <recent name="C:\Users\14973\PycharmProjects\GNN_code\GAT\GAT_self" />
-      <recent name="C:\Users\14973\PycharmProjects\GNN_code\GCN\new_GCN" />
     </key>
   </component>
-  <component name="RunAnythingCache">
-    <myKeys>
-      <visibility group="Grunt" flag="true" />
-      <visibility group="Gulp" flag="true" />
-      <visibility group="HTTP 请求" flag="true" />
-      <visibility group="Node.js" flag="true" />
-      <visibility group="npm" flag="true" />
-      <visibility group="yarn" flag="true" />
-      <visibility group="最近的项目" flag="true" />
-      <visibility group="运行 Python 文件" flag="true" />
-      <visibility group="运行 conda 命令" flag="true" />
-      <visibility group="运行 pip 命令" flag="true" />
-      <visibility group="运行配置" flag="true" />
-    </myKeys>
-  </component>
-  <component name="RunManager" selected="Python.train (1)">
+  <component name="RunManager" selected="Python.model (1)">
+    <configuration name="data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GraphNeuralNetwork-master" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/没用/GraphNeuralNetwork-master/chapter7" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/没用/GraphNeuralNetwork-master/chapter7/data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dataset (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GNN_code" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GraphSage" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GraphSage/dataset.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="model (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GNN_code" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GraphSage" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GraphSage/model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GNN_code" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GraphSage" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GraphSage/sample.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="train (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GNN_code" />
       <option name="ENV_FILES" value="" />
@@ -155,35 +274,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GCN/GCN_self" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GraphSage" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GCN/GCN_self/train.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="GNN_code" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GCN/GCN_CSDN" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GCN/GCN_CSDN/train.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GraphSage/train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -194,8 +290,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.model (1)" />
+        <item itemvalue="Python.sample" />
         <item itemvalue="Python.train (1)" />
-        <item itemvalue="Python.train" />
+        <item itemvalue="Python.dataset (2)" />
+        <item itemvalue="Python.data" />
       </list>
     </recent_temporary>
   </component>
@@ -251,7 +350,15 @@
       <workItem from="1720578714431" duration="7683000" />
       <workItem from="1720586495090" duration="9032000" />
       <workItem from="1720678852187" duration="13618000" />
-      <workItem from="1720698695630" duration="3513000" />
+      <workItem from="1720698695630" duration="3707000" />
+      <workItem from="1720758840978" duration="70000" />
+      <workItem from="1720759101340" duration="13110000" />
+      <workItem from="1720840789021" duration="3313000" />
+      <workItem from="1720859409011" duration="9155000" />
+      <workItem from="1721011041881" duration="303000" />
+      <workItem from="1721098359911" duration="1293000" />
+      <workItem from="1721101456687" duration="2419000" />
+      <workItem from="1721184577037" duration="18414000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -517,7 +624,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720701144528</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="增加git命令，及其大文件忽略机制">
+      <option name="closed" value="true" />
+      <created>1720703195937</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1720703195937</updated>
+    </task>
+    <task id="LOCAL-00035" summary="增加git命令，及其大文件忽略机制">
+      <option name="closed" value="true" />
+      <created>1720703223762</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1720703223762</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,34 +728,41 @@
     <option name="LAST_COMMIT_MESSAGE" value="增加git命令，及其大文件忽略机制" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/GNN_code$data.coverage" NAME="data 覆盖结果" MODIFIED="1721188404709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/没用/GraphNeuralNetwork-master/chapter7" />
     <SUITE FILE_PATH="coverage/GNN_code$new_dataset.coverage" NAME="new_dataset 覆盖结果" MODIFIED="1720421555962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
-    <SUITE FILE_PATH="coverage/GNN_code$train__1_.coverage" NAME="train (1) 覆盖结果" MODIFIED="1720685268605" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN/GCN_self" />
+    <SUITE FILE_PATH="coverage/GNN_code$train__1_.coverage" NAME="train (1) 覆盖结果" MODIFIED="1721196060609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GraphSage" />
     <SUITE FILE_PATH="coverage/GNN_code$model_GAT.coverage" NAME="model_GAT 覆盖结果" MODIFIED="1720427000115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_CSDN" />
     <SUITE FILE_PATH="coverage/GNN_code$GAT_model.coverage" NAME="GAT_model 覆盖结果" MODIFIED="1720412080228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process.coverage" NAME="Cora.Data_process 覆盖结果" MODIFIED="1719655548104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_process.coverage" NAME="dataset_process 覆盖结果" MODIFIED="1719479272148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_Data_process__1_.coverage" NAME="Cora_Data_process (1) 覆盖结果" MODIFIED="1719830033693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
-    <SUITE FILE_PATH="coverage/GNN_code$GCN_for_cora.coverage" NAME="GCN_for_cora 覆盖结果" MODIFIED="1720595511862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DGL/GCN" />
+    <SUITE FILE_PATH="coverage/GNN_code$dataset__2_.coverage" NAME="dataset (2) 覆盖结果" MODIFIED="1721188627074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GraphSage" />
+    <SUITE FILE_PATH="coverage/GNN_code$sample.coverage" NAME="sample 覆盖结果" MODIFIED="1721199316390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GraphSage" />
+    <SUITE FILE_PATH="coverage/GNN_code$GCN_for_cora.coverage" NAME="GCN_for_cora 覆盖结果" MODIFIED="1720847694893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DGL/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$GAT.coverage" NAME="GAT 覆盖结果" MODIFIED="1720425423343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_CSDN" />
     <SUITE FILE_PATH="coverage/GNN_code$train_for_GAT.coverage" NAME="train_for_GAT 覆盖结果" MODIFIED="1720508382823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_self" />
     <SUITE FILE_PATH="coverage/GNN_code$model_train.coverage" NAME="model_train 覆盖结果" MODIFIED="1720068582138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_GAT.coverage" NAME="dataset_GAT 覆盖结果" MODIFIED="1720501020017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_CSDN" />
+    <SUITE FILE_PATH="coverage/GNN_code$model__1_.coverage" NAME="model (1) 覆盖结果" MODIFIED="1721200507963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GraphSage" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_for_GCN_2.coverage" NAME="dataset_for_GCN_2 覆盖结果" MODIFIED="1720507725392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN/reshapeDataset" />
-    <SUITE FILE_PATH="coverage/GNN_code$train.coverage" NAME="train 覆盖结果" MODIFIED="1720681072901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN/GCN_CSDN" />
+    <SUITE FILE_PATH="coverage/GNN_code$train.coverage" NAME="train 覆盖结果" MODIFIED="1720931898967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT_self" />
     <SUITE FILE_PATH="coverage/GNN_code$GCN_model.coverage" NAME="GCN_model 覆盖结果" MODIFIED="1720406303682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
-    <SUITE FILE_PATH="coverage/GNN_code$dataset.coverage" NAME="dataset 覆盖结果" MODIFIED="1720512238474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/aa" />
+    <SUITE FILE_PATH="coverage/GNN_code$dataset.coverage" NAME="dataset 覆盖结果" MODIFIED="1720931192792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_self" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_for_GCN__1_.coverage" NAME="dataset_for_GCN (1) 覆盖结果" MODIFIED="1720421638593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_for_GCN.coverage" NAME="dataset_for_GCN 覆盖结果" MODIFIED="1720421801877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_for_GCN_1.coverage" NAME="dataset_for_GCN_1 覆盖结果" MODIFIED="1720506981631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$new.coverage" NAME="new 覆盖结果" MODIFIED="1719909386099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Dataset/Data_Visualization" />
+    <SUITE FILE_PATH="coverage/GNN_code$model.coverage" NAME="model 覆盖结果" MODIFIED="1721103034326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DGL/GCN_for_Graph_classification" />
+    <SUITE FILE_PATH="coverage/GNN_code$BNIO.coverage" NAME="BNIO 覆盖结果" MODIFIED="1720848780131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BNIO" />
     <SUITE FILE_PATH="coverage/GNN_code$test__1_.coverage" NAME="test (1) 覆盖结果" MODIFIED="1720411293889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GNN_code$new_cora_train.coverage" NAME="new_cora_train 覆盖结果" MODIFIED="1720431038541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
     <SUITE FILE_PATH="coverage/GNN_code$GAT_CSDN.coverage" NAME="GAT_CSDN 覆盖结果" MODIFIED="1720508800740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_CSDN" />
-    <SUITE FILE_PATH="coverage/GNN_code$dataset__1_.coverage" NAME="dataset (1) 覆盖结果" MODIFIED="1720513647260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_self" />
+    <SUITE FILE_PATH="coverage/GNN_code$dataset__1_.coverage" NAME="dataset (1) 覆盖结果" MODIFIED="1720931278999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT_self" />
     <SUITE FILE_PATH="coverage/GNN_code$new_cora_dataset.coverage" NAME="new_cora_dataset 覆盖结果" MODIFIED="1720430639171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />
-    <SUITE FILE_PATH="coverage/GNN_code$train__2_.coverage" NAME="train (2) 覆盖结果" MODIFIED="1720590794862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN/GCN_self" />
+    <SUITE FILE_PATH="coverage/GNN_code$train__2_.coverage" NAME="train (2) 覆盖结果" MODIFIED="1720930035067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_self" />
     <SUITE FILE_PATH="coverage/GNN_code$train_GAT.coverage" NAME="train_GAT 覆盖结果" MODIFIED="1720504754467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_CSDN" />
-    <SUITE FILE_PATH="coverage/GNN_code$train_new.coverage" NAME="train_new 覆盖结果" MODIFIED="1720590539754" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_self" />
+    <SUITE FILE_PATH="coverage/GNN_code$train_new.coverage" NAME="train_new 覆盖结果" MODIFIED="1720929828305" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT/GAT_self" />
+    <SUITE FILE_PATH="coverage/GNN_code$train_new__1_.coverage" NAME="train_new (1) 覆盖结果" MODIFIED="1720930994492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GAT_self" />
     <SUITE FILE_PATH="coverage/GNN_code$Cora_vis.coverage" NAME="Cora_vis 覆盖结果" MODIFIED="1720060017528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Dataset/Data_Visualization" />
     <SUITE FILE_PATH="coverage/GNN_code$test.coverage" NAME="test 覆盖结果" MODIFIED="1720495354707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/GNN_code$dataset_for_GCN_1_.coverage" NAME="dataset_for_GCN(1) 覆盖结果" MODIFIED="1720493616724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GCN" />

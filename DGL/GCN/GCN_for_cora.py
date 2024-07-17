@@ -85,3 +85,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+# dataset = CoraGraphDataset()
+# g = dataset[0]
+#
+# print(g.ndata['label'])
