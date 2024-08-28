@@ -122,3 +122,4 @@ if __name__ == '__main__':
     print("Number of training nodes: ", idx_train.numel())
     print("Number of validation nodes: ", idx_val.numel())
     print("Number of test nodes: ", idx_test.numel())
+    print(features[1])

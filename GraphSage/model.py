@@ -114,7 +114,7 @@ class SageGCN(nn.Module):  # 定义图卷积层
 
 
 class GraphSage(nn.Module):  # 连接卷积层后的两层网络结构
-    def __init__(self, input_dim, hidden_dim, num_neighbors_list):  # hid_dim=[128, 64, 7]为一列表，存储每层的特征维度
+    def __init__(self, input_dim, hidden_dim, num_neighbors_list, hidden_layers, output_dim):  # hid_dim=[128, 64, 7]为一列表，存储每层的特征维度
         super(GraphSage, self).__init__()
         self.input_dim = input_dim
         self.hidden_dim = hidden_dim
@@ -126,6 +126,25 @@ class GraphSage(nn.Module):  # 连接卷积层后的两层网络结构
             self.gcn.append(SageGCN(hidden_dim[index], hidden_dim[index+1]))
 
         self.gcn.append(SageGCN(hidden_dim[-2], hidden_dim[-1], activation=None))  # 输入维度为倒数第二个元素，输出维度为倒数第一个
+
+        hidden_layers = [hidden_dim[-1]] + hidden_layers  # 将卷积层的输出维度纳入多层感知机
+        fc = [nn.Flatten()]
+        for i in range(0, len(hidden_layers) - 1):
+            fc.append(torch.nn.Linear(hidden_layers[i], hidden_layers[i + 1]))
+            fc.append(nn.ReLU())
+        fc.append(torch.nn.Linear(hidden_layers[-1], output_dim))
+        self.fc_layers = nn.Sequential(*fc)
+        self._initialize_weights()
+
+    def _initialize_weights(self):
+        # 遍历所有层并初始化
+        for layer in self.fc_layers:
+            if isinstance(layer, nn.Linear):
+                # 使用 Xavier 初始化权重
+                init.xavier_uniform_(layer.weight)
+                # 初始化偏置为 0
+                if layer.bias is not None:
+                    init.constant_(layer.bias, 0)
 
     def forward(self, node_features_list):  # 前向传播连接网络：输入每个节点的特征列表，其中包含了每个采样跳的节点特征。
         hidden = node_features_list
@@ -139,7 +158,7 @@ class GraphSage(nn.Module):  # 连接卷积层后的两层网络结构
                 h = gcn(src_node_features, neighbor_node_features)  # 使用当前层GCN对源节点特征以及邻居节点特征进行聚合处理
                 next_hidden.append(h)  # 添加列表为下一层做准备
             hidden = next_hidden  # 更新列表，准备进行下一图层处理
-        return hidden[0]  # 在所有层处理完毕后，hidden[0] 包含了最终的节点特征，这是经过所有层处理并聚合了多跳邻居信息的结果。
+        return self.fc_layers(hidden[0])  # 在所有层处理完毕后，hidden[0] 包含了最终的节点特征，这是经过所有层处理并聚合了多跳邻居信息的结果。
 
     def extra_repr(self):  # 打印网络结构
         return 'in_features={}, num_neighbors_list={}'.format(
@@ -149,7 +168,7 @@ class GraphSage(nn.Module):  # 连接卷积层后的两层网络结构
 
 if __name__ == '__main__':
     INPUT_DIM = 1433  # 输入维度
-    HIDDEN_DIM = [128, 64, 7]  # 隐藏单元节点数
+    HIDDEN_DIM = [1433, 1433, 1433]  # 隐藏单元节点数
     NUM_NEIGHBORS_LIST = [10, 10, 10]  # 每阶采样邻居的节点数，采样k = 2 ,每层都为10个邻居
     DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
     model = GraphSage(input_dim=INPUT_DIM, hidden_dim=HIDDEN_DIM, num_neighbors_list=NUM_NEIGHBORS_LIST).to(DEVICE)

@@ -91,3 +91,4 @@ def load_data(path="../../Dataset/cora/", dataset="cora"):  # 装装载数据
     idx_train, idx_val, idx_test = random_mask(num_node=features.shape[0], train_ratio=0.2, val_ratio=0.2)
 
     return adj, features, labels, idx_train, idx_val, idx_test
+

@@ -18,6 +18,7 @@ conda env create -f environment.yml ：在新机器上创建环境
 pip install conda-pack : 安装离线打包
 conda pack -n env_name : 在旧设备上打包压缩包
 tar -xzvf env_name.tar.gz -C path\env_name : 新环境下解压到目的文件目录下
+conda env export :查看环境中每个包文件通过conda安装还是通过pip安装
 
 
 git config --global --get http.proxy

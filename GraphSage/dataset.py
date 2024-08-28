@@ -92,7 +92,7 @@ class CoraData(object):
                     train_mask=train_mask, val_mask=val_mask, test_mask=test_mask)
 
     @staticmethod
-    def build_adjacency(adj_dict):
+    def build_adjacency(adj_dict):  # 在这里没用上
         """根据邻接表创建邻接矩阵"""
         edge_index = []
         num_nodes = len(adj_dict)
@@ -122,4 +122,12 @@ class CoraData(object):
 
 if __name__ == "__main__":
     dataset = CoraData().data
-    print(dataset.adjacency_dict)
+    print(type(dataset.adjacency_dict))
+    print(type(dataset.x))
+    print(type(dataset.y))
+    print(type(dataset.train_mask))
+    print(type(dataset.val_mask))
+    print(type(dataset.test_mask))
+    print(dataset.x[1])
+
+

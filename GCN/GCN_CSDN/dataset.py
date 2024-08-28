@@ -122,6 +122,8 @@ class CoraData:
         return d_hat.dot(adjacency).dot(d_hat).tocoo()
 
 
+
+
 if __name__ == '__main__':
     ds = CoraData("../../Dataset/cora_proceed").data
     print(ds.adjacency)

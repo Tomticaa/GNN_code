@@ -22,8 +22,10 @@ Data = namedtuple('Data', ['x', 'y', 'adjacency_dict', 'train_mask', 'val_mask',
 # 超参数设置
 INPUT_DIM = 1433  # 输入维度
 # Note: 采样的邻居阶数需要与GCN的层数保持一致
-HIDDEN_DIM = [128, 64, 7]  # 隐藏单元节点数
-NUM_NEIGHBORS_LIST = [10, 10, 10]  # 每阶采样邻居的节点数，采样k = 2 ,每层都为10个邻居
+HIDDEN_DIM = [1433, 1433]  # 隐藏单元节点数
+hidden_layers = []
+output_dim = 7
+NUM_NEIGHBORS_LIST = [10, 10]  # 每阶采样邻居的节点数，采样k = 2 ,每层都为10个邻居
 assert len(HIDDEN_DIM) == len(NUM_NEIGHBORS_LIST)  # 使用断言来确保两个列表长度相等，如不相等则抛出AssertionError 异常
 BTACH_SIZE = 16  # 批处理大小
 EPOCHS = 20
@@ -39,7 +41,7 @@ train_index = np.where(data.train_mask)[0]  # 包含所有 data.train_mask 中�
 test_index = np.where(data.test_mask)[0]
 
 # 模型实例化
-model = GraphSage(input_dim=INPUT_DIM, hidden_dim=HIDDEN_DIM, num_neighbors_list=NUM_NEIGHBORS_LIST).to(DEVICE)
+model = GraphSage(input_dim=INPUT_DIM, hidden_dim=HIDDEN_DIM, num_neighbors_list=NUM_NEIGHBORS_LIST, hidden_layers=hidden_layers, output_dim=output_dim).to(DEVICE)
 print(model)
 criterion = nn.CrossEntropyLoss().to(DEVICE)
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
@@ -54,7 +56,7 @@ def train():
             batch_src_label = torch.from_numpy(train_label[batch_src_index]).long().to(DEVICE)  # 这个16个的标签
             batch_sampling_result = multihop_sampling(batch_src_index, NUM_NEIGHBORS_LIST, data.adjacency_dict)  # 进行两层采样，每层采样10，返回的是一个list：[node_num: 16][node_num: 16*10][node_num: 16*10*10]
             batch_sampling_x = [torch.from_numpy(x[idx]).float().to(DEVICE) for idx in batch_sampling_result]  # 将抽取的 16+16*10+16*10*10 个节点的特征，返回的是一个16list，在每个list中分别是大小为(16, 1433),(16*10,1433),(16*10*10,1433)的tensor
-            batch_train_logits = model(batch_sampling_x)  # 得到每个batch的损失
+            batch_train_logits = model(batch_sampling_x)
             loss = criterion(batch_train_logits, batch_src_label)
             optimizer.zero_grad()
             loss.backward()  # 反向传播计算参数的梯度

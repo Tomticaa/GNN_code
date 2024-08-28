@@ -33,7 +33,7 @@ def sampling(src_nodes, sample_num, neighbor_table):  # 一阶采样：k = 1
     for sid in src_nodes:
         # 从节点的邻居中进行有放回地进行采样
         res = np.random.choice(neighbor_table[sid], size=(sample_num,))  # size：需要采样的数量
-        results.append(res)
+        results.extend(res)
     return np.asarray(results).flatten()
 
 
